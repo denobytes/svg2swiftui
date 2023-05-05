@@ -41,7 +41,7 @@ Options:
 // parse args
 const help = args.help;
 const svgFilename = args.file || args.f;
-const svgUrl = args.url || args.r;
+const svgUrl = args.url || args.u;
 const outputFilename = args.output || args.o;
 const readStdin = !svgFilename && !svgUrl && args._.length == 0;
 
@@ -72,8 +72,9 @@ if (svgFilename) {
   svgStr = text;
 }
 if (svgUrl) {
-  let text = await fetch(svgUrl);
-  svgStr = text;
+  const textResponse = await fetch(svgUrl);
+  const textData = await textResponse.text();
+  svgStr = textData;
 }
 
 let result = convert(svgStr);
