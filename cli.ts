@@ -1,5 +1,5 @@
 import { parse } from "https://deno.land/std@0.181.0/flags/mod.ts";
-import { convert } from "npm:svg-to-swiftui-core@0.3.3";
+import { convert } from "npm:svg-to-swiftui-core@0.3.5";
 
 const args = parse(Deno.args, {
   boolean: [
